@@ -3,7 +3,7 @@ import { User, LogIn, LogOut, Settings, AlertCircle, CheckCircle } from 'lucide-
 import './App.css';
 
 const App = () => {
-  const [clientId, setClientId] = useState('');
+  const [clientId, setClientId] = useState(import.meta.env.VITE_GOOGLE_CLIENT_ID || '');
   const [isInitialized, setIsInitialized] = useState(false);
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
