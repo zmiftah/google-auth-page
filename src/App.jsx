@@ -3,7 +3,7 @@ import { User, LogIn, LogOut, Settings, AlertCircle, CheckCircle } from 'lucide-
 import './App.css';
 
 const App = () => {
-  const [clientId, setClientId] = useState(import.meta.env.VITE_GOOGLE_CLIENT_ID || '');
+  const [clientId, setClientId] = useState('');
   const [isInitialized, setIsInitialized] = useState(false);
   const [user, setUser] = useState(null);
   const [error, setError] = useState('');
@@ -200,6 +200,7 @@ const App = () => {
               <input
                 type="text"
                 value={clientId}
+                name="password"
                 onChange={(e) => setClientId(e.target.value)}
                 placeholder="Enter your Google OAuth Client ID"
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 bg-white placeholder-gray-500"
