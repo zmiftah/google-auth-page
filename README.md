@@ -1,3 +1,11 @@
+# INTRO
+
+Front-page for Sign-in: https://zmiftah.github.io/google-auth-page/
+
+For verify: `node verify.js`
+
+For getting token: `node verify-browser.js`
+
 # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
