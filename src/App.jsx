@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { User, LogIn, LogOut, Settings, AlertCircle, CheckCircle } from 'lucide-react';
-import './App.css'
+import './App.css';
 
 const App = () => {
   const [clientId, setClientId] = useState('');
@@ -35,17 +35,24 @@ const App = () => {
       return;
     }
 
+    // Validate Client ID format
+    if (!clientId.includes('.googleusercontent.com')) {
+      setError('Client ID should end with .googleusercontent.com. Please check your Client ID.');
+      return;
+    }
+
     try {
       window.google.accounts.id.initialize({
         client_id: clientId,
         callback: handleCredentialResponse,
         auto_select: false,
-        cancel_on_tap_outside: false
+        cancel_on_tap_outside: false,
+        use_fedcm_for_prompt: false
       });
 
       setIsInitialized(true);
       setError('');
-      console.log('Google Auth initialized successfully');
+      console.log('Google Auth initialized successfully with Client ID:', clientId.substring(0, 20) + '...');
     } catch (err) {
       setError('Failed to initialize Google Auth: ' + err.message);
       console.error('Init error:', err);
@@ -178,9 +185,10 @@ const App = () => {
               <p className="text-sm text-blue-800 font-semibold mb-2">Important Notes:</p>
               <ul className="text-sm text-blue-700 space-y-1">
                 <li>• For local development, add: <code className="bg-blue-200 px-1 rounded">http://localhost:5173</code></li>
-                <li>• For production, add your actual domain</li>
+                <li>• For GitHub Pages, add: <code className="bg-blue-200 px-1 rounded">https://yourusername.github.io</code></li>
                 <li>• Make sure cookies are enabled in your browser</li>
                 <li>• Some browsers block third-party cookies which can affect One Tap</li>
+                <li>• GitHub Pages only supports HTTPS, which is required for Google OAuth</li>
               </ul>
             </div>
           </div>
