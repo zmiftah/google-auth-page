@@ -202,7 +202,7 @@ const App = () => {
                 value={clientId}
                 onChange={(e) => setClientId(e.target.value)}
                 placeholder="Enter your Google OAuth Client ID"
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-800 bg-white placeholder-gray-500"
               />
               <button
                 onClick={initializeGoogleAuth}
@@ -305,7 +305,7 @@ const App = () => {
                 <textarea
                   value={token}
                   readOnly
-                  className="w-full h-32 p-3 border border-gray-300 rounded-lg bg-white font-mono text-sm resize-none"
+                  className="w-full h-32 p-3 border border-gray-300 rounded-lg bg-gray-50 font-mono text-sm resize-none text-gray-800 placeholder-gray-500"
                 />
                 <p className="text-sm text-gray-600">
                   This JWT token contains your authentication information and can be used to verify your identity with backend services.
