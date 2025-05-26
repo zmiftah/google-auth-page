@@ -1,3 +1,5 @@
+import { Settings } from 'lucide-react';
+
 const SetupInfo = () => {
     return (
         <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
